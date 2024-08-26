@@ -1,0 +1,147 @@
+@import '../../styles/variables.scss';
+
+.search {
+	@include pad {
+		background-color: transparent;
+		width: 100%;
+		padding: 8px;
+		position: static;
+	}
+
+	width: 380px;
+	background-color: $bg-input;
+	padding: 8px 30px 8px 12px;
+	border-radius: $br-default;
+	position: relative;
+	transition: background-color 0.3s ease-in-out;
+
+	&__submit {
+		@include pad {
+			display: none;
+		}
+
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 8px;
+		color: $typo-gray;
+		transition: color 0.3s ease-in-out;
+		cursor: pointer;
+	}
+
+	&__submit-mob {
+		@include pad {
+			display: block;
+		}
+
+		display: none;
+		width: 24px;
+		height: 24px;
+		cursor: pointer;
+		color: $typo-gray;
+	}
+
+	&__input {
+		@include txt16;
+
+		@include pad {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			background-color: $bg-input-mob;
+			padding: 16px 48px 16px 16px;
+			height: 56px;
+			z-index: 3;
+
+			&_active {
+				display: block;
+				color: $typo-light;
+			}
+		}
+
+		width: 100%;
+		color: $typo-light;
+		transition: color 0.3s ease-in-out;
+
+		&::placeholder {
+			@include txt16;
+			color: $typo-gray;
+		}
+
+		&::-webkit-search-cancel-button {
+			display: none;
+		}
+	}
+
+	&__result {
+		@include pad {
+			top: 56px;
+			left: 0;
+		}
+
+		position: absolute;
+		top: calc(100% + 5px);
+		left: 0;
+		width: 100%;
+		background-color: $typo-light;
+		border-radius: $br-default;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+		z-index: 5;
+		transition: opacity 0.3s ease-in-out;
+		overflow: hidden;
+	}
+
+	&__view-all {
+		@include txt16;
+
+		color: $typo-dark;
+		padding: 8px;
+		margin: 0 auto;
+		width: 100%;
+		background-color: $bg-light-dark;
+		cursor: pointer;
+		transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				background-color: $typo-contrast;
+				color: $typo-light;
+			}
+		}
+	}
+
+	&__empty {
+		@include txt16;
+
+		padding: 32px;
+		text-align: center;
+	}
+
+	&__close {
+		display: none;
+
+		&_active {
+			@include pad {
+				display: block;
+				width: 24px;
+				height: 24px;
+				color: var(--typo-light);
+				position: absolute;
+				top: 16px;
+				right: 16px;
+				z-index: 10;
+				cursor: pointer;
+
+				svg {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
+}

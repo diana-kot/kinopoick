@@ -1,0 +1,10 @@
+.app {
+	margin: 0 auto;
+}
+
+.main {
+	min-height: 100vh;
+	padding: 52px 30px 10%;
+	max-width: 402x;
+	margin: 0 auto;
+}

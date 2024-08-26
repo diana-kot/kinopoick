@@ -1,0 +1,67 @@
+@import '../../styles/variables.scss';
+
+.dropdown {
+	box-sizing: border-box;
+
+	&__label {
+		font-style: normal;
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 20px;
+		color: #8d8d8d;
+	}
+
+	&__container {
+		position: relative;
+		display: flex;
+		width: max-content;
+		&-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 50px;
+			width: 100%;
+			padding: 8px 16px 8px 24px;
+			border: 1px solid #e4e4e4;
+			border-radius: 8px;
+			box-sizing: border-box;
+			max-width: fit-content;
+			gap: 6px;
+		}
+
+		&-arrow {
+			&_open {
+				transform: rotate(180deg);
+				transition: $accordion-transition-speed;
+			}
+
+			transform: rotate(0deg);
+			transition: $accordion-transition-speed;
+		}
+
+		&-title {
+			font-style: normal;
+			font-weight: 600;
+			font-size: 14px;
+			line-height: 22px;
+		}
+	}
+
+	&__content {
+		position: absolute;
+		min-height: 10px;
+		width: 320px;
+		top: 105%;
+		display: flex;
+		border: 1px solid $typo-gray;
+		border-radius: 8px;
+		flex-direction: row;
+		align-items: center;
+		padding: 8px 16px 8px 24px;
+		box-sizing: border-box;
+		background: $button-bg;
+		z-index: 1000;
+		max-height: 300px;
+		overflow-y: auto;
+	}
+}

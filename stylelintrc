@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss",
+    "stylelint-config-clean-order"
+  ],
+  "plugins": ["stylelint-order", "stylelint-scss"],
+  "rules": {
+    "no-empty-source": null,
+    "no-invalid-position-at-import-rule": true,
+    "no-duplicate-at-import-rules": true,
+    "order/properties-alphabetical-order": null
+  }
+}

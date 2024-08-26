@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+
+.button {
+	border: none;
+	padding: 8px 32px;
+	display: block;
+	margin: 0 auto;
+	border-radius: 4px;
+	cursor: pointer;
+	color: inherit;
+	font-family: inherit;
+	transition: all 0.5s linear;
+
+	&:hover {
+		opacity: 0.5;
+	}
+
+	&_disabled {
+		cursor: not-allowed;
+	}
+}

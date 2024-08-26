@@ -1,0 +1,58 @@
+@import '../../styles/variables.scss';
+
+.header {
+	background-color: $bg-dark;
+
+	&__container {
+		@include pad {
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+
+		padding-top: 18px;
+		padding-bottom: 18px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__logo {
+		display: flex;
+		align-items: center;
+		width: 164px;
+		height: 36px;
+		color: $typo-light;
+		transition: color 0.3s ease-in-out;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				color: $typo-contrast;
+			}
+		}
+	}
+
+	&__panel {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+
+		@include pad {
+			gap: 10px;
+		}
+	}
+
+	&__login {
+		@include txt16;
+
+		color: $typo-gray;
+		cursor: pointer;
+		transition: color 0.3s ease-in-out;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				color: $typo-light;
+			}
+		}
+	}
+}

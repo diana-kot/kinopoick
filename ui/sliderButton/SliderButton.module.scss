@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+
+.button {
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: $button-bg;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid $button-border;
+	color: $typo-dark;
+	pointer-events: all;
+	transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+		background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			background-color: $typo-contrast;
+			color: $typo-light;
+			border-color: $typo-contrast;
+		}
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	&_prev {
+		svg {
+			transform: rotate(180deg);
+		}
+	}
+
+	svg {
+		width: 15px;
+		height: 15px;
+	}
+}

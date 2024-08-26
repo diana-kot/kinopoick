@@ -1,0 +1,71 @@
+@import '../styles/variables.scss';
+body {
+	background-color: #dcdcdc;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+	display: none;
+}
+
+.page-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+.page {
+	max-width: 1440px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.container {
+	@include pad {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
+	width: 100%;
+	max-width: 1280px;
+	padding-right: 32px;
+	padding-left: 32px;
+	margin: 0 auto;
+}
+
+.page-content {
+	@include tablet {
+		padding-top: 30px;
+		padding-bottom: 80px;
+	}
+
+	padding-top: 50px;
+	padding-bottom: 100px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.not-found {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+
+	&__title {
+		@include h3;
+
+		color: $typo-dark;
+		text-align: center;
+	}
+
+	&__text {
+		@include txt16;
+
+		color: $typo-dark;
+		text-align: center;
+	}
+}

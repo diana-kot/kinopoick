@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.movie-grid {
+	&:not(:first-child) {
+		padding-top: 40px;
+	}
+
+	&__title {
+		@include h4;
+
+		color: $typo-dark;
+		padding-bottom: 20px;
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(150px, auto));
+		gap: 29px;
+	}
+
+	&__error {
+		@include txt16;
+
+		color: $typo-dark;
+	}
+}

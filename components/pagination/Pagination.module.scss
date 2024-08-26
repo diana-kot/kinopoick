@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 40px;
+	max-width: fit-content;
+
+	// &__btn {
+	// 	border-radius: 50%;border-radiusborder-radiusborder-radiusborder-radius
+	// 	background-color: $button-hover;background-colorbackground-colorbackground-colorbackground-color
+	// }
+}
