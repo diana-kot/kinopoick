@@ -8,7 +8,7 @@ export interface IRangeSlider {
 	max?: number
 	step?: number
 	defaultValue?: number[]
-	onChange: () => void
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const RangeSlider = ({

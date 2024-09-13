@@ -18,8 +18,13 @@ export const apiHelper = async (
 	url: string,
 	...args: any[]
 ) => {
-	console.log('args', ...args)
-	const { data } = await axios[method](`${BASE_URL}/${url}`, ...args)
-	console.log('data 9999999999999999999', data)
-	return data
+	try {
+		console.log('args', ...args)
+		const { data } = await axios[method](`${BASE_URL}/${url}`, ...args)
+		console.log('data 9999999999999999999', data)
+		return data
+	} catch (error) {
+		console.log('api error', error)
+		throw error
+	}
 }

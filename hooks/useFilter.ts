@@ -16,10 +16,12 @@ export const useFilter = () => {
 	)
 
 	const setFilmGenreName = (value: string[] | null) => {
+		console.log('value 999', value)
 		dispatch(SetFilmGenreName(value))
 	}
 
 	const setFilmRating = (value: number[]) => {
+		console.log('setFilmRating', value)
 		dispatch(SetFilmRating(value))
 	}
 

@@ -2,33 +2,37 @@ import React, { useCallback } from 'react'
 
 import useDebouncedFunction from '@/hooks/useDebouncedFunction'
 import RangeSlider from '@/ui/rangeSlider/RangeSlider'
+import { useFilter } from '@/hooks/useFilter'
 
 interface IProps {
 	state: number[]
-	setState: React.Dispatch<React.SetStateAction<number[]>>
 	minDist: number
 	min: number
 	max: number
 	name: string
 }
 
-const DoubleRange = ({ state, setState, minDist, min, max, name }: IProps) => {
+const DoubleRange = ({ state, minDist, min, max, name }: IProps) => {
+
+	const { setFilmRating } = useFilter()
 	const minDistance = minDist
 
-	const changeValue = (newValue: any) => {
-		setState(newValue)
+	const changeValue = (newValue: number[]) => {
+		console.log('newValue', newValue)
+		setFilmRating(newValue)
 	}
 
 	const debouncedValueLogging = useDebouncedFunction(changeValue, 300)
 
 	const handleRating = useCallback(
 		(event: Event) => {
+			console.log('event', event)
 			if (!Array.isArray(event)) {
 				return
 			}
 			debouncedValueLogging(event)
 		},
-		[setState, minDistance, min, max]
+		[setFilmRating, minDistance, min, max]
 	)
 
 	return (
@@ -52,7 +56,7 @@ const DoubleRange = ({ state, setState, minDist, min, max, name }: IProps) => {
 				max={max}
 				step={minDist}
 				defaultValue={state}
-				onChange={handleRating}
+				onChange={(e) => handleRating(e)}
 				value={state}
 			/>
 		</div>

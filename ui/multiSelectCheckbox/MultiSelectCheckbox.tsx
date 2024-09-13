@@ -40,7 +40,7 @@ const MultiSelectCheckbox = ({
 		return options.map(option => (
 			<li
 				className={styles['option']}
-				key={option.value}
+				key={option.label}
 				onClick={e => e.stopPropagation()}>
 				<label className={styles['label']}>
 					<input
@@ -66,13 +66,14 @@ const MultiSelectCheckbox = ({
 
 	const handleFormatSelectedOptions = (options: IOption[]) => {
 		const arr = options.map(option => {
-			return option.label.toLowerCase()
+			return option.value.toLowerCase()
 		})
 		return arr
 	}
 
 	useEffect(() => {
 		if (selectedOptions?.length > 0) {
+			console.log('selectedOptions', selectedOptions)
 			setFilmGenreName(handleFormatSelectedOptions(selectedOptions))
 		}
 	}, [selectedOptions?.length])

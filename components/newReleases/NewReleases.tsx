@@ -19,10 +19,10 @@ import FilmFilters from '../filters/filmFilters/FilmFilters'
 import styles from './NewReleases.module.scss'
 import { useFilter } from '@/hooks/useFilter'
 
-export default function NewReleases({ currentPage = 1 }) {
+export default function NewReleases({ currentPage = 1 }: { currentPage?: number }) {
 	const queryClient = new QueryClient()
 
-	const { genreName, rating, setFilmRating, year, setFilmYear } = useFilter()
+	const { genreName, rating, year, setFilmYear } = useFilter()
 
 	const [limit, setLimit] = useState(10)
 
@@ -33,12 +33,14 @@ export default function NewReleases({ currentPage = 1 }) {
 	// const searchParams = useSearchParams()
 	// console.log('searchParams', searchParams)
 
-	const formatGenresName = () => {
+	const formatGenresName = (): string => {
 		if (genreName.length <= 0) {
-			return
+			return ''
 		}
-
-		return genreName.join(', ').toLowerCase()
+console.log('genreName', genreName)
+// genres.name=драма, genres.name=криминал, genres.name=криминал&genres.name=драма
+		// return genreName.join(', ').toLowerCase()
+		return genreName.map(genre=> `genres.name=${genre}`).join('&')
 	}
 
 	const params: IFetchMovieParams = {
@@ -47,21 +49,20 @@ export default function NewReleases({ currentPage = 1 }) {
 		sortField: 'rating.kp',
 		sortType: '-1',
 		'votes.kp': '50000 - 1000000',
-		'genres.name': formatGenresName(),
+		...(formatGenresName() ? { [formatGenresName()]: '' } : {}),
 		'rating.kp': `${rating[0]}-${rating[1]}`,
-		year: `${year[0]}-${year[1]}`,
+		// year: `${year[0]}-${year[1]}`,
 	}
 
 	// await queryClient.prefetchQuery({
 	// 	queryKey: [QUERY_KEY.newReleases, params],
 	// 	queryFn: () => getMovieList(params),
-	// })
+	//})
 
 	return (
 		<HydrationBoundary state={dehydrate(queryClient)}>
 			<div className={styles['new-releases']}>
 				<FilmFilters
-					setRating={() => setFilmRating}
 					year={year}
 					setYear={() => setFilmYear}
 					rating={rating}
@@ -76,3 +77,5 @@ export default function NewReleases({ currentPage = 1 }) {
 		</HydrationBoundary>
 	)
 }
+
+
