@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './MultiSelectCheckbox.module.scss'
 import DropDown from '../dropDown/DropDown'
 import { useFilter } from '@/hooks/useFilter'
+import SelectOption from './selectOption/SelectOption'
 
 type dropdownTypes =
 	| 'select' //Select
@@ -83,10 +84,21 @@ const MultiSelectCheckbox = ({
 			<div>
 				{selectedOptions?.length > 0 && (
 					<p className={styles['dropdown__label']}>
-						<span>Выбрано:</span>
-						{selectedOptions
-							.map((option: any) => option.label)
-							.join(', ')}
+						<span>Выбрано: </span>
+						<ul className={styles['dropdown__tabs']}>
+							{selectedOptions.map((option: any) => {
+								return (
+									<li
+										style={{
+											border: '1px solid white',
+											backgroundColor: 'transparent',
+											padding: '1px 6px',
+										}}>
+										{option.label}
+									</li>
+								)
+							})}
+						</ul>
 					</p>
 				)}
 			</div>

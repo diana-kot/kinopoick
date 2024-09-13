@@ -37,10 +37,10 @@ export default function NewReleases({ currentPage = 1 }: { currentPage?: number 
 		if (genreName.length <= 0) {
 			return ''
 		}
-console.log('genreName', genreName)
+// console.log('genreName', genreName)
 // genres.name=драма, genres.name=криминал, genres.name=криминал&genres.name=драма
-		// return genreName.join(', ').toLowerCase()
-		return genreName.map(genre=> `genres.name=${genre}`).join('&')
+	 return genreName.join(', ').toLowerCase()
+		// return genreName.map(genre=> `genres.name=${genre}`).join('&')
 	}
 
 	const params: IFetchMovieParams = {
@@ -49,9 +49,9 @@ console.log('genreName', genreName)
 		sortField: 'rating.kp',
 		sortType: '-1',
 		'votes.kp': '50000 - 1000000',
-		...(formatGenresName() ? { [formatGenresName()]: '' } : {}),
+		'genres.name' : formatGenresName(),
 		'rating.kp': `${rating[0]}-${rating[1]}`,
-		// year: `${year[0]}-${year[1]}`,
+		year: `${year[0]}-${year[1]}`,
 	}
 
 	// await queryClient.prefetchQuery({

@@ -16,6 +16,14 @@
 		overflow-y: scroll;
 	}
 
+	&__tabs {
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 20px;
+	}
+
 	&__flex {
 		display: flex;
 		flex-direction: column;

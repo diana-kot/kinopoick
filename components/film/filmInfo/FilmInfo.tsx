@@ -81,6 +81,8 @@ const FilmInfo = ({ film, isFav }: IFilmInfoProps) => {
 		return getDeclensions(n, suffixes)
 	}
 
+	console.log('film.genres', film.genres)
+
 	// @ts-ignore
 	return (
 		<>

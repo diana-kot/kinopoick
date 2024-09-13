@@ -9,11 +9,11 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 function makeQueryClient() {
 	return new QueryClient({
-		// defaultOptions: {
-		// 	queries: {
-		// 		staleTime: 60 * 1000,
-		// 	},
-		// },
+		defaultOptions: {
+			queries: {
+				staleTime: 60 * 1000,
+			},
+		},
 	})
 }
 

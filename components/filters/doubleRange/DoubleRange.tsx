@@ -18,7 +18,6 @@ const DoubleRange = ({ state, minDist, min, max, name }: IProps) => {
 	const minDistance = minDist
 
 	const changeValue = (newValue: number[]) => {
-		console.log('newValue', newValue)
 		setFilmRating(newValue)
 	}
 
@@ -26,7 +25,6 @@ const DoubleRange = ({ state, minDist, min, max, name }: IProps) => {
 
 	const handleRating = useCallback(
 		(event: Event) => {
-			console.log('event', event)
 			if (!Array.isArray(event)) {
 				return
 			}
