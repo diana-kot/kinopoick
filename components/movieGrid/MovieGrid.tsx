@@ -28,6 +28,10 @@ const MovieGrid = ({
 
 	const movies = data?.docs ?? []
 
+console.log('isFetching', isFetching)
+
+console.log('isPending', isPending)
+
 	return (
 		<div className={styles['movie-grid']}>
 			<h2 className={styles['movie-grid__title']}>{title} </h2>
@@ -40,9 +44,14 @@ const MovieGrid = ({
 						попробуйте позже
 					</p>
 				)}
-				{movies.map((movie: IFilm) => (
+					{movies.length === 0 && !isFetching && !isPending && (
+					<p className={styles['movie-list__error']}>
+						По вашему запросу ничего не найдено
+					</p>
+				)}
+				{!isFetching && !isPending && (movies.map((movie: IFilm) => (
 					<MovieCard movie={movie} key={movie.id} />
-				))}
+				)))}
 			</div>
 			<Pagination
 				totalPage={data?.pages}
